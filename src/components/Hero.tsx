@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profileImg from "@/assets/profile.png";
 
 const Hero = () => {
   return (
@@ -72,8 +73,8 @@ const Hero = () => {
               {/* Decorative circles */}
               <div className="absolute -top-4 -right-4 w-72 h-72 sm:w-96 sm:h-96 rounded-full border-2 border-primary/20 animate-float" />
               <div className="absolute -bottom-4 -left-4 w-72 h-72 sm:w-96 sm:h-96 rounded-full border-2 border-primary/10" />
-              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl relative z-10 bg-muted flex items-center justify-center">
-                <span className="text-6xl font-bold text-primary/40 font-heading">MM</span>
+              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl relative z-10 bg-muted">
+                <img src={profileImg} alt="Mulatu Mekonnen" className="w-full h-full object-cover" />
               </div>
               {/* Floating dots */}
               {[...Array(5)].map((_, i) => (
