@@ -10,11 +10,11 @@ interface TimelineItem {
 
 const education: TimelineItem[] = [
   {
-    period: "2021 - Present",
+    period: "2021 - 2025",
     title: "Computer Science",
-    org: "University",
+    org: "Arsi University",
     desc: "Pursuing a Bachelor's degree in Computer Science with focus on software development and system design.",
-    tags: ["Java", "Python", "Algorithms", "Data Structures"],
+    tags: ["Java", "C++", "Algorithms", "Data Structures"],
   },
   {
     period: "2024",

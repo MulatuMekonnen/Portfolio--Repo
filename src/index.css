@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -95,4 +95,23 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* custom pill background for section titles */
+.title-ellipse {
+  position: relative;
+  display: inline-block;
+}
+.title-ellipse::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2rem);
+  height: 2.5rem;
+  background: hsl(var(--primary) / 0.15);
+  border-radius: 9999px;
+  padding: 2px;
+  z-index: -1;
 }

@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Space Grotesk", "sans-serif"],
-        body: ["Poppins", "sans-serif"],
+        heading: ["Inter", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Oxygen", "Ubuntu", "Cantarell", '"Open Sans"', '"Helvetica Neue"', "sans-serif"],
+        body: ["Inter", "-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "Oxygen", "Ubuntu", "Cantarell", '"Open Sans"', '"Helvetica Neue"', "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

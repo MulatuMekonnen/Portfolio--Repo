@@ -2,8 +2,25 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImg from "@/assets/profile.png";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const titles = [
+    "Mobile App Developer",
+    "Full Stack Developer",
+    "Backend Developer",
+    "Freelancer",
+  ];
+  const [index, setIndex] = useState(0);
+  const title = titles[index];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % titles.length);
+    }, 3000); // change every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen hero-bg flex items-center pt-16">
       <div className="container mx-auto px-4 md:px-8">
@@ -26,8 +43,9 @@ const Hero = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-3 leading-tight">
               Mulatu Mekonnen
             </h1>
+            {/* rotating titles: Mobile App Developer, Fullstack Developer and Freelancer */}
             <h2 className="text-2xl sm:text-3xl font-semibold text-primary mb-6">
-              Full Stack Developer
+              {title}
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-lg mb-8">
               Expertise in modern web technologies: Crafting dynamic web experiences with React, Node.js, and cloud services. Bringing ideas to life with seamless integration, top-notch performance, and a passion for clean, scalable code.
@@ -44,9 +62,9 @@ const Hero = () => {
 
             <div className="flex gap-4">
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Send, href: "https://t.me/", label: "Telegram" },
+                { icon: Github, href: "https://github.com/MulatuMekonnen/MulatuMekonnen", label: "GitHub" },
+                { icon: Linkedin, href: "https://linkedin.com/in/mulatumekonnen", label: "LinkedIn" },
+                { icon: Send, href: "https://t.me/muler_1219", label: "Telegram" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -74,7 +92,7 @@ const Hero = () => {
               <div className="absolute -top-4 -right-4 w-72 h-72 sm:w-96 sm:h-96 rounded-full border-2 border-primary/20 animate-float" />
               <div className="absolute -bottom-4 -left-4 w-72 h-72 sm:w-96 sm:h-96 rounded-full border-2 border-primary/10" />
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl relative z-10 bg-muted">
-                <img src={profileImg} alt="Mulatu Mekonnen" className="w-full h-full object-cover" />
+                <img src="/profile.png" alt="Mulatu Mekonnen" className="w-full h-full object-cover" />
               </div>
               {/* Floating dots */}
               {[...Array(5)].map((_, i) => (

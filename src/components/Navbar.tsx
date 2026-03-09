@@ -48,7 +48,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-16">
         <a href="#home" className="font-heading text-xl font-bold text-foreground">
-          MM<span className="text-primary">.</span>
+         MULER<span className="text-primary">.</span>
         </a>
 
         {/* Desktop */}

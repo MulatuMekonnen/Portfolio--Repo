@@ -16,12 +16,44 @@ const Contact = () => {
       toast.error("Please fill in all required fields.");
       return;
     }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    
     setLoading(true);
-    // Placeholder — will connect to Lovable Cloud later
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent! I'll get back to you soon.");
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setLoading(false);
+    
+    try {
+      const response = await fetch('/api/contact', { // Change to '/.netlify/functions/contact' if using Netlify
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: form.subject || 'Portfolio Contact'
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        toast.error(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast.error("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -38,8 +70,8 @@ const Contact = () => {
           <div className="space-y-6">
             {[
               { icon: MapPin, label: "Location", value: "Ethiopia, Addis Ababa" },
-              { icon: Mail, label: "Email", value: "mulatu@example.com" },
-              { icon: Phone, label: "Phone", value: "+251 900 000 000" },
+              { icon: Mail, label: "Email", value: "mulercs514@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+251 988 968 276" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-start gap-3">
                 <div className="p-2 rounded-lg bg-primary/10 text-primary">
