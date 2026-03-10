@@ -2,6 +2,8 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+export const config = { runtime: "nodejs18.x" };
+
 export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     const { name, email, message, subject } = req.body
